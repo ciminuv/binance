@@ -9,7 +9,7 @@ require_relative 'rest/methods'
 module Binance
   module Client
     class REST
-      BASE_URL = 'https://api.binance.com'.freeze
+      BASE_URL = 'https://api.binance.us'.freeze
 
       def initialize(api_key: '', secret_key: '',
                      adapter: Faraday.default_adapter)
@@ -33,8 +33,8 @@ module Binance
 
       def self.add_query_param(query, key, value)
         query = query.to_s
-        query << '&' unless query.empty?
-        query << "#{Faraday::Utils.escape key}=#{Faraday::Utils.escape value}"
+        query.empty? ? query = "" : query.concat('&')
+        query.concat("#{Faraday::Utils.escape key}=#{Faraday::Utils.escape value}")
       end
 
       def camelize(str)

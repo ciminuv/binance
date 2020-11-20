@@ -5,7 +5,7 @@ module Binance
     # Public: Client with methods mirroring the Binance WebSocket API
     class WebSocket
       # Public: String base url for WebSocket client to use
-      BASE_URL = 'wss://stream.binance.com:9443'.freeze
+      BASE_URL = 'wss://stream.binance.us:9443'.freeze
 
       # Public: Create a single WebSocket stream
       #
